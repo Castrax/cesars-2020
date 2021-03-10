@@ -1,0 +1,65 @@
+{
+  "nominees":
+  [
+    { "api_id_title": 983929,
+      "title_type": "person",
+      "api_id_subtitle": 669664,
+      "subtitle_type": "movie",
+      "category_id": 1
+    },
+    { "api_id_title": 115272,
+      "title_type": "person",
+      "api_id_subtitle": 621744,
+      "subtitle_type": "movie",
+      "category_id": 1
+    },
+    { "api_id_title": 118178,
+      "title_type": "person",
+      "api_id_subtitle": 651881,
+      "subtitle_type": "movie",
+      "category_id": 1
+    },
+    { "api_id_title": 1171510,
+      "title_type": "person",
+      "api_id_subtitle": 661935,
+      "subtitle_type": "movie",
+      "category_id": 1
+    },
+    { "api_id_title": 23378,
+      "title_type": "person",
+      "api_id_subtitle": 621744,
+      "subtitle_type": "movie",
+      "category_id": 1
+    },
+    { "api_id_title": 20667,
+      "title_type": "person",
+      "api_id_subtitle": 618224,
+      "subtitle_type": "movie",
+      "category_id": 2
+    },
+    { "api_id_title": 129765,
+      "title_type": "person",
+      "api_id_subtitle": 640561,
+      "subtitle_type": "movie",
+      "category_id": 2
+    },
+    { "api_id_title": 14606,
+      "title_type": "person",
+      "api_id_subtitle": 651881,
+      "subtitle_type": "movie",
+      "category_id": 2
+    },
+    { "api_id_title": 143596,
+      "title_type": "person",
+      "api_id_subtitle": 661935,
+      "subtitle_type": "movie",
+      "category_id": 2
+    },
+    { "api_id_title": 2192,
+      "title_type": "person",
+      "api_id_subtitle": 661804,
+      "subtitle_type": "movie",
+      "category_id": 2
+    }
+  ]
+}

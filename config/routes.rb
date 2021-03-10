@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :categories do
-    resources :answers
+  resources :categories
+  resources :answers do
+    get 'voted', to: 'answers#voted'
   end
 
   devise_for :users

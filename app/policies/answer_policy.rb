@@ -17,6 +17,10 @@ class AnswerPolicy < ApplicationPolicy
     return true
   end
 
+  def voted?
+    return true
+  end
+
   def update?
     record.user == user
   end

@@ -1,39 +1,20 @@
 <p class="show-explain">Clique sur une carte ci-dessous pour voter</p>
 <div class="cards">
   <% @nominees.each do |nominee| %>
-    <% accuse = "accuse" %>
-    <% accuses = Nominee.where("nominees.name LIKE ?", "%#{accuse}%").or(Nominee.where("nominees.real LIKE ?", "%#{accuse}%")) %>
-    <% if accuses.include?(nominee)  %>
-      <div class="card accuse couponcode">
-        <span class="coupontooltip">"Je suis accusé... EUH j'accuse !" (Déso, impossible de voter pour une des catégories de Polanski)</span>
-        <%= cl_image_tag nominee.photo.key, height: 373, width: 280, crop: :fill, class: 'photo-accuse' %>
-        <div class="infos-nominee infos-accuse">
+    <%= link_to answers_path(nominee_id: nominee.id, category_id: @category.id, user_id: current_user), method: :post, class: "link-nominee" do %>
+      <div class="card">
+        <%= image_tag nominee.title_photo, height: 373, width: 280, crop: :fill, class: 'photo-nominee' %>
+        <div class="infos-nominee">
           <div class="left-infos">
             <div class="name">
-              <%= nominee.name %>
+              <%= nominee.title_text %>
             </div>
             <div class="real">
-              <%= nominee.real %>
+              <%= nominee.subtitle_text %>
             </div>
           </div>
         </div>
       </div>
-    <% else %>
-      <%= link_to category_answers_path(:nominee_id => nominee.id, :category_id => @category.id, :user_id => current_user), method: :post, class: "link-nominee" do %>
-        <div class="card">
-          <%= cl_image_tag nominee.photo.key, height: 373, width: 280, crop: :fill, class: 'photo-nominee' %>
-          <div class="infos-nominee">
-            <div class="left-infos">
-              <div class="name">
-                <%= nominee.name %>
-              </div>
-              <div class="real">
-                <%= nominee.real %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
     <% end %>
   <% end %>
 </div>

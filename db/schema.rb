@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_115715) do
+ActiveRecord::Schema.define(version: 2021_03_10_183230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,13 @@ ActiveRecord::Schema.define(version: 2020_02_27_115715) do
   end
 
   create_table "nominees", force: :cascade do |t|
-    t.string "name"
+    t.string "title_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
-    t.string "real"
-    t.boolean "winner"
+    t.text "subtitle_text"
+    t.string "title_photo"
+    t.string "subtitle_photo"
     t.index ["category_id"], name: "index_nominees_on_category_id"
   end
 
@@ -76,8 +77,18 @@ ActiveRecord::Schema.define(version: 2020_02_27_115715) do
     t.string "prenom"
     t.string "nom"
     t.integer "stock"
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "winners", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.bigint "nominee_id"
+    t.index ["category_id"], name: "index_winners_on_category_id"
+    t.index ["nominee_id"], name: "index_winners_on_nominee_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -85,4 +96,6 @@ ActiveRecord::Schema.define(version: 2020_02_27_115715) do
   add_foreign_key "answers", "nominees"
   add_foreign_key "answers", "users"
   add_foreign_key "nominees", "categories"
+  add_foreign_key "winners", "categories"
+  add_foreign_key "winners", "nominees"
 end

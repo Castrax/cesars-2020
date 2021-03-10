@@ -1,0 +1,27 @@
+{
+  "categories":
+  [
+    { "title": "Meilleure actrice", "points": 3 },
+    { "title": "Meilleur acteur", "points": 3 },
+    { "title": "Meilleure actrice dans un second rôle", "points": 5 },
+    { "title": "Meilleur acteur dans un second rôle", "points": 3 },
+    { "title": "Meilleur espoir féminin", "points": 5 },
+    { "title": "Meilleur espoir masculin", "points": 5 },
+    { "title": "Meilleur scénario original", "points": 3 },
+    { "title": "Meilleure adaptation", "points": 5 },
+    { "title": "Meilleure musique originale", "points": 10 },
+    { "title": "Meilleur son", "points": 10 },
+    { "title": "Meilleure photo", "points": 10 },
+    { "title": "Meilleur montage", "points": 10 },
+    { "title": "Meilleurs costumes", "points": 10 },
+    { "title": "Meilleurs décors", "points": 10 },
+    { "title": "Meilleure réalisation", "points": 3 },
+    { "title": "Meilleur film de court-métrage", "points": 10 },
+    { "title": "Meilleur film d'animation", "points": 5 },
+    { "title": "Meilleur film documentaire", "points": 10 },
+    { "title": "Meilleur premier film", "points": 5 },
+    { "title": "Meilleur film étranger", "points": 5 },
+    { "title": "Meilleur film", "points": 3 }
+  ]
+}
+

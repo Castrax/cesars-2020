@@ -1,0 +1,43 @@
+<% if @answer.category_id == Category.last.id %>
+  <div class="card-voted">
+    <%= image_tag @nominee.title_photo, height: 373, width: 280, crop: :fill, class: 'photo-nominee' %>
+    <div class="infos-voted">
+      <div class="infos-title">
+        <p class="label-infos-title">Tu as voté pour</p>
+        <p class="nominee-infos"><%= @nominee.title_text %> <span class="infos-title-real">- <%= @nominee.subtitle_text %></span></p>
+      </div>
+      <div class="infos-buttons">
+        <div class="change-vote-div">
+          <%= link_to "Change ton vote", answer_path(@answer), method: :delete, data: { confirm: 'Sûr de changer ton vote ?'}, class: 'change-vote' %>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalValidate">
+          Valide tes votes
+        </button>
+      </div>
+      <div class="index-button">
+        <i class="fas fa-list"></i>
+        <%= link_to 'Retourne à la liste des catégories', categories_path, class: "categories-list"  %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="card-voted">
+    <%= image_tag @nominee.title_photo, height: 373, width: 280, crop: :fill, class: 'photo-nominee' %>
+    <div class="infos-voted">
+      <div class="infos-title">
+        <p class="label-infos-title">Tu as voté pour</p>
+        <p class="nominee-infos"><%= @nominee.title_text %> <span class="infos-title-real">- <%= @nominee.subtitle_text %></span></p>
+      </div>
+      <div class="infos-buttons">
+        <div class="change-vote-div">
+          <%= link_to "Change ton vote", answer_path(@answer), method: :delete, data: { confirm: 'Sûr de changer ton vote ?'}, class: 'change-vote' %>
+        </div>
+        <%= link_to "Vote pour la catégorie suivante", category_path(@answer.category.id + 1), class: "next-category"  %>
+      </div>
+      <div class="index-button">
+        <i class="fas fa-list"></i>
+        <%= link_to 'Retourne à la liste des catégories', categories_path, class: "categories-list"  %>
+      </div>
+    </div>
+  </div>
+<% end %>
