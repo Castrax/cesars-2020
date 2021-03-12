@@ -21,10 +21,13 @@
 }
 
 .infos-nominee {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   position: absolute;
   z-index: 2;
-  bottom: 2.5rem;
-  left: 1rem;
+  bottom: 1.5rem;
+  left: 0rem;
   width: 90%;
   margin-left: 1rem;
   .left-infos {
@@ -154,15 +157,15 @@
   opacity: 0.5;
 }
 
-.card-voted, .no-vote {
+.no-vote {
   height: 250px;
 }
 
-.infos-voted, .no-vote {
+.no-vote {
   width: 100%;
 }
 
-.infos-title, .no-vote {
+.no-vote {
   text-align: center;
 }
 
@@ -206,17 +209,17 @@
       margin-bottom: 2rem;
     }
   }
-  .card-voted, .no-vote {
+  .no-vote {
     height: 250px;
     margin-top: 5rem;
   }
-  .infos-voted, .no-vote {
+  .no-vote {
     margin-top: 2rem;
   }
-  .nominee-infos, .no-vote {
+  .no-vote {
     margin-left: 0 !important;
   }
-  .label-infos-title, .no-vote {
+  .no-vote {
     padding-left: 0rem !important;
   }
   .top-card {

@@ -1,10 +1,10 @@
 <div class="container">
   <h1 class="category-title">Résultats finaux</h1>
-  <% if Nominee.where(winner: true) == [] %>
+  <% if @winners_blank %>
     <div class="card-voted status">
-      <div class="infos-voted">
+      <div class="infos-voted no-vote">
         <div class="infos-title">
-          <p class="label-infos-title">⏰ En attente des résultats des césars 2020 !</p>
+          <p class="label-infos-title">⏰ En attente des résultats des césars 2021 !</p>
           <p class="nominee-infos">Quand les résultats tomberont, check ci-dessous pour voir si tu as gagné ou perdu !</p>
         </div>
       </div>
@@ -13,7 +13,7 @@
     <div class="card-voted status">
       <div class="infos-voted">
         <div class="infos-title">
-          <p class="label-infos-title">🎙 Ci-dessous les résultats des césars 2020 !</p>
+          <p class="label-infos-title">🎙 Ci-dessous les résultats des césars 2021 !</p>
           <p class="nominee-infos">Check ci-dessous pour voir si tu as gagné ou perdu !</p>
         </div>
       </div>
@@ -30,12 +30,10 @@
             <td><%= user.prenom %> <%= user.nom %> </td>
               <% @stock = 0 %>
               <% @categories.each do |category| %>
-                <% if user.answers.where(category_id: category.id)[0] == nil %>
-                  <% @stock += 0 %>
-                <% elsif user.answers.where(category_id: category.id)[0].nominee.winner == false || nil %>
-                  <% @stock += 0 %>
-                <% elsif user.answers.where(category_id: category.id)[0].nominee.winner %>
+                <% if user.answers.find_by(category_id: category.id)&.nominee == Winner.find_by(category_id: category.id)&.nominee %>
                   <% @stock += category.points %>
+                <% else %>
+                  <% @stock += 0 %>
                 <% end %>
               <% end %>
               <% user.stock = @stock %>

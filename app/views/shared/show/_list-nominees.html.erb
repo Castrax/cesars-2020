@@ -3,7 +3,11 @@
   <% @nominees.each do |nominee| %>
     <%= link_to answers_path(nominee_id: nominee.id, category_id: @category.id, user_id: current_user), method: :post, class: "link-nominee" do %>
       <div class="card">
-        <%= image_tag nominee.title_photo, height: 373, width: 280, crop: :fill, class: 'photo-nominee' %>
+        <% if nominee.title_photo.empty? %>
+          <%= image_tag nominee.subtitle_photo, height: 373, crop: :fill, class: 'photo-nominee' %>
+        <% else %>
+          <%= image_tag nominee.title_photo, height: 373, crop: :fill, class: 'photo-nominee' %>
+        <% end %>
         <div class="infos-nominee">
           <div class="left-infos">
             <div class="name">
@@ -12,6 +16,9 @@
             <div class="real">
               <%= nominee.subtitle_text %>
             </div>
+          </div>
+          <div class="right-photo">
+            <%= image_tag nominee.subtitle_photo, height: 150, crop: :fill, class: 'photo-nominee' %>
           </div>
         </div>
       </div>

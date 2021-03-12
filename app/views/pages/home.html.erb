@@ -6,6 +6,14 @@
   </div>
 </div>
 <div class="vote-button">
-  <%= link_to 'Vote now', category_path(@category), class: 'btn-home'  %>
+  <% if DateTime.now < DateTime.new(2021, 03, 12, 21, 00) %>
+    <%= link_to 'Vote now', category_path(@category), class: 'btn-home'  %>
+  <% else %>
+    <% if @winner %>
+      <%= link_to 'Voir les résultats', category_winner_path(@winner), class: 'btn-home' %>
+    <% else %>
+      <%= link_to 'En attente du premier résultat', '#', class: 'btn-home' %>
+    <% end %>
+  <% end %>
 </div>
 

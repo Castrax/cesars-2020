@@ -8,6 +8,8 @@ Answer.destroy_all
 User.destroy_all
 puts "DB cleaned."
 
+puts 'creating User'
+user = User.create(email: 'm.robert@skema.edu', prenom: 'Mathilde', nom: 'Robert', admin: true, password: '5656vbui')
 
 puts 'Creating categories...'
 def create_categories(filepath)
@@ -34,7 +36,11 @@ def images_parse(type, id)
   config_read = open(configuration_url).read
   data_parsed = JSON.parse(data_read)
   config_parsed = JSON.parse(config_read)
-  type == 'person' ? "#{config_parsed["images"]["base_url"]}#{config_parsed["images"]["profile_sizes"].last}#{data_parsed["profiles"][0]["file_path"]}" : "#{config_parsed["images"]["base_url"]}#{config_parsed["images"]["poster_sizes"].last}#{data_parsed["posters"][0]["file_path"]}"
+  if data_parsed["profiles"].present? || data_parsed["posters"].present?
+    p type == 'person' ? "#{config_parsed["images"]["base_url"]}#{config_parsed["images"]["profile_sizes"].last}#{data_parsed["profiles"][0]["file_path"]}" : "#{config_parsed["images"]["base_url"]}#{config_parsed["images"]["poster_sizes"].last}#{data_parsed["posters"][0]["file_path"]}"
+  else
+    p ''
+  end
 end
 
 def nominee_text_parse(type, id)

@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="card-voted">
+    <%= image_tag @winner.nominee.title_photo, height: 373, crop: :fill, class: 'photo-nominee' %>
+    <div class="infos-voted">
+      <div class="infos-title">
+        <p class="label-infos-title">And the winner is :</p>
+        <p class="nominee-infos"><%= @winner.nominee.title_text %> <span class="infos-title-real">- <%= @winner.nominee.subtitle_text %></span></p>
+      </div>
+      <div class="results-category">
+        <p class="title-results-category">Résultats de la catégorie <%= @winner.category.title %></p>
+        <table class="sortable-table">
+          <tr>
+            <th class="participants">Participants</th>
+            <th class="numeric-sort">Score</th>
+          </tr>
+          <% @users.sort_by {|user| user.points(@winner.category) }.each do |user| %>
+            <tr>
+              <td><%= user.prenom %> <%= user.nom %> </td>
+              <td><%= user.points(@winner.category) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/modal-validate' %>

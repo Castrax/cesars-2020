@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :categories
+  ActiveAdmin.routes(self)
+  resources :categories do
+    resources :winners
+  end
   resources :answers do
     get 'voted', to: 'answers#voted'
   end
