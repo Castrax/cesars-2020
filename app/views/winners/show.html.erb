@@ -21,7 +21,9 @@
           <% end %>
         </table>
       </div>
+      <div class="infos-buttons">
+        <%= link_to "Voir le prochain winner", category_path(@answer.category.id + 1), class: "next-category"  %>
+      </div>
     </div>
   </div>
 </div>
-<%= render 'shared/modal-validate' %>
