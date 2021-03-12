@@ -22,7 +22,11 @@
         </table>
       </div>
       <div class="infos-buttons">
-        <%= link_to "Voir le prochain winner", category_path(@answer.category.id + 1), class: "next-category"  %>
+        <% if Winner.find_by(id: @winner.id + 1).present? %>
+          <%= link_to "Voir le prochain winner", category_winner_path(@winner.category.id + 1, @winner.id + 1), class: "next-category"  %>
+        <% else %>
+          <p class="next-category"> En attente du prochain winner', '#', class: "next-category" %>
+        <% end %>
       </div>
     </div>
   </div>
